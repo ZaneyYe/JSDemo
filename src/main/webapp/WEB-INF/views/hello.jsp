@@ -24,7 +24,7 @@
   <hr />
      <iframe name="demoFrame" style="display: none" onload="getOk()"></iframe>
      <div id="demo2">
-         <form action="/uploadFile2.do" enctype="multipart/form-data" method="post" target="demoFrame" />
+         <form action="/uploadFile2.do" onsubmit="checkValid(this)" enctype="multipart/form-data" method="post" target="demoFrame" />
          名称:<input type="text" name="name2"/><br/>
          文件:<input type="file" name="upFile2" /><br />
          <br />
@@ -48,6 +48,13 @@
 <script type="text/javascript">
     function getOk() {
         alert("success");
+    }
+
+    function checkValid(form){
+        if(form.name2.value == ""){
+            alert("名称不能为空..");
+            return false;
+        }
     }
 
     //异步
