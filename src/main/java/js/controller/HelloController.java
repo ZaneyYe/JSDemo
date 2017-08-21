@@ -76,6 +76,16 @@ public class HelloController {
 	}
 
 
+	@RequestMapping(value = "subStuInfo.do",method = RequestMethod.POST)
+	@ResponseBody
+	public void subStuInfo(HttpServletRequest request,
+						   @RequestParam("stuName")String name,
+						   @RequestParam("stuNo")String no){
+		System.out.println(name);
+		System.out.println(no);
+		return ;
+	}
+
 
 
 }

@@ -41,6 +41,15 @@
          </form>
          <button id="subBtn">提交</button>
      </div>
+
+    <hr />
+    <div id="demo4">
+        <form id="demo4Form">
+            名字：<input type="text" name="name4" /><br />
+            学号：<input type="text" name="stuNo" /><br />
+        </form>
+        <button id="stuSub">提交</button>
+    </div>
   </body>
 </html>
 
@@ -82,5 +91,22 @@
         })
     })
 
+
+    $("#stuSub").click(function () {
+        var stuName = $(":input[name='name4']").val();
+        var stuNo = $(":input[name='stuNo']").val();
+        var data = {
+            stuName : stuName,
+            stuNo : stuNo
+        }
+        $.ajax({
+            url : "/subStuInfo.do",
+            type : "POST",
+            data: data
+//            success : function (data) {
+//                console.log(data);
+//            }
+        })
+    })
 
 </script>
