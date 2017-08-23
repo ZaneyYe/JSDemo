@@ -87,5 +87,13 @@ public class HelloController {
 	}
 
 
+	@RequestMapping(value = "/subInfo.do",method = RequestMethod.POST)
+	@ResponseBody
+	public String subStuInfo2(HttpServletRequest request,
+							  @RequestParam("stuName")String name,
+							  @RequestParam("stuNo")String no){
+		LOGGER.info("stuName:{}, stuNo: {}",name,no);
+		return null;
+	}
 
 }
