@@ -2,6 +2,8 @@ package js.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -17,6 +19,13 @@ public class WordController {
 	@RequestMapping("/toWorld.do")
 	public String toWord(HttpServletRequest request){
 		return "world";
+	}
+
+
+	@RequestMapping(value = "isAlive.do",method = RequestMethod.GET)
+	@ResponseBody
+	public String isAlive(HttpServletRequest request){
+		return "ok";
 	}
 
 
