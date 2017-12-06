@@ -27,6 +27,10 @@
          <form action="/uploadFile2.do" onsubmit="checkValid(this)" enctype="multipart/form-data" method="post" target="demoFrame" />
          名称:<input type="text" name="name2"/><br/>
          文件:<input type="file" name="upFile2" /><br />
+         类型：<select name="type">
+         <option name="type" value="1">1</option>
+         <option name="type" value="2">2</option>
+     </select>
          <br />
          <input type="submit" value="提交" />
          </form>

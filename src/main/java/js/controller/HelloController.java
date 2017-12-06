@@ -22,21 +22,22 @@ public class HelloController {
 	private static final Logger LOGGER = LoggerFactory.getLogger(HelloController.class);
 
 	@RequestMapping("/hello.do")
-	public String toHello(){
+	public String toHello() {
 		return "hello";
 	}
 
 	/**
 	 * 同步上传跳转
+	 *
 	 * @param request
 	 * @param name
 	 * @param file
 	 * @return
 	 */
-	@RequestMapping(value = "/uploadFile1.do",method = RequestMethod.POST)
+	@RequestMapping(value = "/uploadFile1.do", method = RequestMethod.POST)
 	public String upLoadFileOne(HttpServletRequest request,
-							  @RequestParam("name") String name,
-							  @RequestParam("upFile") MultipartFile file){
+								@RequestParam("name") String name,
+								@RequestParam("upFile") MultipartFile file) {
 		LOGGER.info("开始上传1...{}", name);
 		System.out.println(file.getOriginalFilename());
 		return "success";
@@ -45,57 +46,59 @@ public class HelloController {
 
 	/**
 	 * iframe 无刷新上传文件
+	 *
 	 * @param request
 	 * @param name
 	 * @param file
 	 */
-	@RequestMapping(value = "/uploadFile2.do",method = RequestMethod.POST)
+	@RequestMapping(value = "/uploadFile2.do", method = RequestMethod.POST)
 	public void upLoadFileTwo(HttpServletRequest request,
-								@RequestParam("name2") String name,
-								@RequestParam("upFile2") MultipartFile file){
-		LOGGER.info("开始上传2...{}", name);
+							  @RequestParam("name2") String name,
+							  @RequestParam("type") String type,
+							  @RequestParam("upFile2") MultipartFile file) {
+		LOGGER.info("开始上传2...{}...{}", name, type);
 		System.out.println(file.getOriginalFilename());
 		return;
 	}
 
 	/**
 	 * h5 异步上传文件 ,返回需要是json才能进入success
+	 *
 	 * @param request
 	 * @param name
 	 * @param file
 	 * @return
 	 */
-	@RequestMapping(value = "uploadFile3.do",method = RequestMethod.POST)
+	@RequestMapping(value = "uploadFile3.do", method = RequestMethod.POST)
 	@ResponseBody
 	public Boolean upLoadFileThree(HttpServletRequest request,
-								@RequestParam("name3") String name,
-								@RequestParam("upFile3") MultipartFile file){
+								   @RequestParam("name3") String name,
+								   @RequestParam("upFile3") MultipartFile file) {
 		LOGGER.info("开始上传3...{}", name);
 		System.out.println(file.getOriginalFilename());
 		return new Boolean(true);
 	}
 
 
-	@RequestMapping(value = "subStuInfo.do",method = RequestMethod.POST)
+	@RequestMapping(value = "subStuInfo.do", method = RequestMethod.POST)
 	@ResponseBody
 	public void subStuInfo(HttpServletRequest request,
-						   @RequestParam("stuName")String name,
-						   @RequestParam("stuNo")String no){
+						   @RequestParam("stuName") String name,
+						   @RequestParam("stuNo") String no) {
 		System.out.println(name);
 		System.out.println(no);
-		return ;
+		return;
 	}
 
 
-	@RequestMapping(value = "/subInfo.do",method = RequestMethod.POST)
+	@RequestMapping(value = "/subInfo.do", method = RequestMethod.POST)
 	@ResponseBody
 	public String subStuInfo2(HttpServletRequest request,
-							  @RequestParam("stuName")String name,
-							  @RequestParam("stuNo")String no){
-		LOGGER.info("stuName:{}, stuNo: {}",name,no);
+							  @RequestParam("stuName") String name,
+							  @RequestParam("stuNo") String no) {
+		LOGGER.info("stuName:{}, stuNo: {}", name, no);
 		return null;
 	}
-
 
 
 }
